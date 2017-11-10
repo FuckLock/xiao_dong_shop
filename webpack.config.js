@@ -2,7 +2,7 @@
 * @Author: baodongdong
 * @Date:   2017-11-08 14:37:09
 * @Last Modified by:   baodongdong
-* @Last Modified time: 2017-11-08 18:18:34
+* @Last Modified time: 2017-11-10 15:41:04
 */
 
 var webpack = require('webpack');
@@ -39,6 +39,14 @@ var config = {
           { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' }
 	    ]
   	},
+    resolve: {
+      alias: {
+        util: __dirname + '/src/util/',
+        page: __dirname + '/src/page/',
+        service: __dirname + '/src/service/',
+        image: __dirname + '/src/image/'
+      }
+    },
     plugins: [
     	new webpack.optimize.CommonsChunkPlugin({
     		name : 'common',
@@ -51,7 +59,7 @@ var config = {
 };
 
 if (WEBPACK_ENV === 'dev') {
-    config.entry.common.push('webpack-dev-server/client?http:localhost:8088/')
+    config.entry.common.push('webpack-dev-server/client?http://localhost:8080/')
 }
 
 module.exports = config;	
