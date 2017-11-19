@@ -1,0 +1,28 @@
+/**
+ * @Author: baodongdong
+ * @Date:   2017-11-18T16:47:48+08:00
+ * @Last modified by:   baodongdong
+ * @Last modified time: 2017-11-18T18:31:03+08:00
+ */
+
+.nav{
+  height: 30px;
+  line-height: 30px;
+  background: #eee;
+}
+.nav .user{
+  float: left;
+}
+.nav .user.login{
+  display: none;
+}
+.nav .user .link{
+  margin-right: 5px;
+}
+.nav .nav-list{
+  float: right;
+}
+.nav .nav-list .nav-item{
+  display: inline-block;
+  margin-left: 5px;
+}

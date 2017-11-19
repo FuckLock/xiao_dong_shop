@@ -6,14 +6,14 @@
 */
 var _mm = require('util/mm.js');
 
-// _mm.request({
-// 	url: './test.do',
-// 	success: function(res) {
-// 		console.log(res);
-// 	},
-// 	error: function(err) {
-// 		console.log(err);
-// 	}
-// });
+_mm.request({
+	url: './test.do',
+	success: function(res) {
+		console.log(res);
+	},
+	error: function(err) {
+		console.log(err);
+	}
+});
 
-console.log(_mm.getUrlParam("test"));
+// console.log(_mm.getUrlParam("test"));

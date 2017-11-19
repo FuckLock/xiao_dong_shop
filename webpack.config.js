@@ -35,12 +35,23 @@ var config = {
     },
     module: {
 	    loaders: [
-	      { test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader","css-loader") },
-          { test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/, loader: 'url-loader?limit=100&name=resource/[name].[ext]' }
+	      {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract("style-loader","css-loader")
+        },
+        {
+          test: /\.(gif|png|jpg|woff|svg|eot|ttf)\??.*$/,
+          loader: 'url-loader',
+          query: {
+            limit: '100',
+            name: 'resource/[name].[ext]'
+          }
+        }
 	    ]
   	},
     resolve: {
       alias: {
+        node_modules: __dirname + '/node_modules/',
         util: __dirname + '/src/util/',
         page: __dirname + '/src/page/',
         service: __dirname + '/src/service/',
@@ -54,7 +65,7 @@ var config = {
     	}),
     	new ExtractTextPlugin("css/[name].css"),
     	new HtmlWebpackPlugin(getHtmlConfig('index')),
-        new HtmlWebpackPlugin(getHtmlConfig('login'))
+      new HtmlWebpackPlugin(getHtmlConfig('login'))
     ]
 };
 
@@ -62,4 +73,4 @@ if (WEBPACK_ENV === 'dev') {
     config.entry.common.push('webpack-dev-server/client?http://localhost:8080/')
 }
 
-module.exports = config;	
+module.exports = config;
